@@ -13,6 +13,73 @@ function site_configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'admin_menu_cache_client';
+  $strongarm->value = 1;
+  $export['admin_menu_cache_client'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'admin_menu_components';
+  $strongarm->value = array(
+    'admin_menu.icon' => TRUE,
+    'admin_menu.menu' => TRUE,
+    'admin_menu.users' => TRUE,
+    'admin_menu.account' => TRUE,
+    'shortcut.links' => FALSE,
+    'admin_menu.search' => FALSE,
+  );
+  $export['admin_menu_components'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'admin_menu_devel_modules_skip';
+  $strongarm->value = array(
+    'admin_devel' => 0,
+    'field_ui' => 0,
+    'views_ui' => 0,
+  );
+  $export['admin_menu_devel_modules_skip'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'admin_menu_margin_top';
+  $strongarm->value = 1;
+  $export['admin_menu_margin_top'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'admin_menu_position_fixed';
+  $strongarm->value = 1;
+  $export['admin_menu_position_fixed'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'admin_menu_tweak_modules';
+  $strongarm->value = 0;
+  $export['admin_menu_tweak_modules'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'admin_menu_tweak_permissions';
+  $strongarm->value = 0;
+  $export['admin_menu_tweak_permissions'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'admin_menu_tweak_tabs';
+  $strongarm->value = 0;
+  $export['admin_menu_tweak_tabs'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'admin_theme';
   $strongarm->value = 'seven';
   $export['admin_theme'] = $strongarm;
@@ -27,6 +94,19 @@ function site_configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'coffee_settings_menus';
+  $strongarm->value = array(
+    'management' => 'management',
+    'user-menu' => 'user-menu',
+    'features' => 0,
+    'main-menu' => 0,
+    'navigation' => 0,
+  );
+  $export['coffee_settings_menus'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'date_default_timezone';
   $strongarm->value = 'America/Toronto';
   $export['date_default_timezone'] = $strongarm;
@@ -37,6 +117,90 @@ function site_configuration_strongarm() {
   $strongarm->name = 'filter_fallback_format';
   $strongarm->value = 'plain_text';
   $export['filter_fallback_format'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_count_enabled';
+  $strongarm->value = 1;
+  $export['module_filter_count_enabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_dynamic_save_position';
+  $strongarm->value = 1;
+  $export['module_filter_dynamic_save_position'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_hide_empty_tabs';
+  $strongarm->value = 0;
+  $export['module_filter_hide_empty_tabs'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_recent_modules';
+  $strongarm->value = array();
+  $export['module_filter_recent_modules'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_remember_active_tab';
+  $strongarm->value = 0;
+  $export['module_filter_remember_active_tab'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_remember_update_state';
+  $strongarm->value = 0;
+  $export['module_filter_remember_update_state'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_set_focus';
+  $strongarm->value = 0;
+  $export['module_filter_set_focus'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_tabs';
+  $strongarm->value = 1;
+  $export['module_filter_tabs'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_track_recent_modules';
+  $strongarm->value = 0;
+  $export['module_filter_track_recent_modules'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_use_switch';
+  $strongarm->value = 0;
+  $export['module_filter_use_switch'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_use_url_fragment';
+  $strongarm->value = 1;
+  $export['module_filter_use_url_fragment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_visual_aid';
+  $strongarm->value = 1;
+  $export['module_filter_visual_aid'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
