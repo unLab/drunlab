@@ -239,6 +239,15 @@ function permissions_user_default_permissions() {
     'module' => 'menu',
   );
 
+  // Exported permission: 'administer menu_trail_by_path'.
+  $permissions['administer menu_trail_by_path'] = array(
+    'name' => 'administer menu_trail_by_path',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'menu_trail_by_path',
+  );
+
   // Exported permission: 'administer module filter'.
   $permissions['administer module filter'] = array(
     'name' => 'administer module filter',

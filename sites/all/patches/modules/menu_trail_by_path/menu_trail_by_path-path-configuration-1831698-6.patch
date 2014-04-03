@@ -1,0 +1,69 @@
+diff --git a/menu_trail_by_path.module b/menu_trail_by_path.module
+index 8e4ab0f..bdee13b 100644
+--- a/menu_trail_by_path.module
++++ b/menu_trail_by_path.module
+@@ -15,14 +15,23 @@
+ 
+ /**
+  * Implements hook_page_delivery_callback_alter().
+- * 
++ *
+  * This is the only hook that occurs after the page callback, but before
+  * hook_page_build (when blocks are added). We're using this hook for its
+  * timing, not its data.
+  */
+ function menu_trail_by_path_page_delivery_callback_alter() {
+   global $language;
+-  $parent_candidates = _menu_trail_by_path_get_parent_candidates(drupal_get_path_alias());
++
++  // Compare the current path alias against the active path configuration
++  $alias = drupal_get_path_alias();
++  $pathConfig = variable_get('menu_trail_by_path_active_paths', array('active_on' => 0, 'paths' => ''));
++  $pathMatch = !($pathConfig['active_on'] xor drupal_match_path($alias, $pathConfig['paths']));
++  if (!$pathMatch) {
++    return;
++  }
++
++  $parent_candidates = _menu_trail_by_path_get_parent_candidates($alias);
+   // Don't even bother if current page is root
+   if (empty($parent_candidates)) {
+     return;
+@@ -115,12 +124,38 @@ function menu_trail_by_path_menu() {
+  * Form builder; create and display the admin configuration settings form.
+  */
+ function menu_trail_by_path_form($form, &$form_state) {
++  $paths = variable_get('menu_trail_by_path_active_paths', array(
++    'active_on' => 0,
++    'paths' => '',
++  ));
++
+   $form['menu_trail_by_path_breadcrumb_handling'] = array(
+     '#type' => 'checkbox',
+     '#title' => t('Enable breadcrumb handling'),
+     '#description' => t("If checked, breadcrumb will be set according to url path."),
+ 		'#default_value' => variable_get('menu_trail_by_path_breadcrumb_handling', TRUE),
+   );
++  $form['menu_trail_by_path_active_paths'] = array(
++    '#type' => 'fieldset',
++    '#tree' => TRUE,
++    '#title' => t('Active Paths'),
++  );
++  $form['menu_trail_by_path_active_paths']['active_on'] = array(
++    '#type' => 'radios',
++    '#title' => t('Enable for specific paths'),
++    '#options' => array(
++      0 => t('All paths except those listed'),
++      1 => t('Only the listed paths'),
++    ),
++    '#default_value' => $paths['active_on'],
++  );
++  $form['menu_trail_by_path_active_paths']['paths'] = array(
++    '#type' => 'textarea',
++    '#title' => '<span class="element-invisible">' . t("Configured paths") . '</span>',
++    '#default_value' => $paths['paths'],
++    '#description' => t("Specify path aliases. Enter one path per line. The '*' character is a wildcard."),
++  );
++
+   return system_settings_form($form);
+ }
+ 
