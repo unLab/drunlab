@@ -1,0 +1,201 @@
+<?php
+
+// Include the field theme functions
+module_load_include('inc', 'ds_common_markup', 'includes/ds_common_markup.fields');
+
+/**
+ * Implements hook_ds_field_theme_functions_info
+ */
+function ds_common_markup_ds_field_theme_functions_info() {
+  return array(
+    'theme_ds_field_slider' => t('Slider'),
+    'theme_ds_field_link' => t('Link to parent'),
+    'theme_ds_inline_blocks' => t('Inline blocks'),
+    'theme_ds_field_ul' => t('Unorderd List'),
+    'theme_ds_field_ol' => t('Ordred List'),
+  );
+}
+
+/**
+ * Implements hook_ds_layout_info()
+ */
+function ds_common_markup_ds_layout_info() {
+  $path = drupal_get_path('module', 'ds_common_markup');
+
+  $layouts = array();
+  $settings = variable_get('ds_common_markup_layouts', array());
+
+  if (!isset($settings['dscm-figure'])) {
+    $settings['dscm-figure'] = 0;
+  }
+
+  if ($settings['dscm-figure'] < 2) {
+    $layouts['dscm-figure'] = array(
+      'label' => 'Figure',
+      'path' => $path . '/dscm-figure',
+      'regions' => array(
+        'image' => t('Image'),
+        'caption' => t('Caption')
+      ),
+      'image' => TRUE
+    );
+    // CSS is set in it's own if statement because setting it to false still
+    // causes the css to load. The key must not be set.
+    if ($settings['dscm-figure'] == 0) {
+      $layouts['dscm-figure']['css'] = TRUE;
+    }
+  }
+
+  if (!isset($settings['dscm-media'])) {
+    $settings['dscm-media'] = 0;
+  }
+  if ($settings['dscm-media'] < 2) {
+    $layouts['dscm-media'] = array(
+      'label' => 'Media',
+      'path' => $path . '/dscm-media',
+      'regions' => array(
+        'image' => t('Image'),
+        'body' => t('Body'),
+        'after' => t('After'),
+      ),
+      'image' => TRUE
+    );
+    if ($settings['dscm-media'] == 0) {
+      $layouts['dscm-media']['css'] = TRUE;
+    }
+  }
+
+  return $layouts;
+}
+
+/**
+ * Implements hook_ds_layout_info_alter().
+ *
+ * Hides all the panels layouts from Display Suite
+ */
+function ds_common_markup_ds_layout_info_alter(&$layouts) {
+  $hidePanels = variable_get('ds_common_markup_hide_panels', false);
+  $hideDefaults = variable_get('ds_common_markup_hide_defaults', false);
+  $hiddenLayouts = array_map('trim', explode("\n", variable_get('ds_common_markup_hidden', "")));
+  $visibleLayouts = array_map('trim', explode("\n", variable_get('ds_common_markup_visible', "ds_reset")));
+
+  foreach ($layouts as $key => $value) {
+    if (in_array($key, $hiddenLayouts)) {
+      unset($layouts[$key]);
+      continue;
+    }
+    if (in_array($key, $visibleLayouts)) {
+      continue;
+    }
+    if (substr($key, 0, 7) === 'panels-' && $hidePanels) {
+      unset ($layouts[$key]);
+      continue;
+    }
+    if (substr($key, 0, 3) === 'ds_' && $hideDefaults) {
+      unset ($layouts[$key]);
+      continue;
+    }
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function ds_common_markup_menu() {
+  $items = array();
+
+  $items['admin/structure/ds/layouts'] = array(
+    'title' => 'Layouts',
+    'description' => 'Configure layouts available to Display Suite',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ds_common_markup_form'),
+    'access arguments' => array('admin display suite'),
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/**
+ * Page callback: Custom layouts settings
+ *
+ * @see ds_common_markup_menu()
+ */
+function  ds_common_markup_form() {
+  $form['ds_common_markup_hide_panels'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Hide default panels layouts from Display Suite?'),
+    '#default_value' => variable_get('ds_common_markup_hide_panels', false),
+    '#description' => t('Checking this box will hide all layouts with a machine name begining with "panels-"'),
+  );
+
+  $form['ds_common_markup_hide_defaults'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Hide default Display Suite layouts?'),
+    '#default_value' => variable_get('ds_common_markup_hide_defaults', false),
+    '#description' => t('Checking this box will hide all layouts with a machine name begining with "ds_"'),
+  );
+
+  $form['ds_common_markup_visible'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Visible anyway'),
+    '#default_value' => variable_get('ds_common_markup_visible', 'ds_reset'),
+    '#description' => t('Enter the machine names, one to a line, of any layouts that should be available regardless of the above checkboxes.'),
+  );
+
+  $hide_instructions  = 'Enter the machine names, one to a line, of any ';
+  $hide_instructions .= 'other layouts you would like to hide from Display ';
+  $hide_instructions .= ' Suite. You can also use this field instead of the ';
+  $hide_instructions .= 'checkboxes above to selectively hide default layouts.';
+
+  $form['ds_common_markup_hidden'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Hide other layouts'),
+    '#default_value' => variable_get('ds_common_markup_hidden', ''),
+    '#description' => t($hide_instructions),
+  );
+
+  // Per-layout configurations
+
+  $layouts = variable_get('ds_common_markup_layouts', array());
+
+  $layout_instructions  = 'Control the layouts provided by the Common Markup module. ';
+  $layout_instructions .= 'Select "Markup Only" if you plan to style the ';
+  $layout_instructions .= 'layout in your theme. You may need to clear ';
+  $layout_instructions .= 'the cache or visit each entity type\'s "Manage ';
+  $layout_instructions .= 'Display" screen and save for these settings to ';
+  $layout_instructions .= 'come into effect.';
+
+  $form['ds_common_markup_layouts'] = array(
+    '#type' => 'fieldset',
+    '#tree' => TRUE,
+    '#title' => t('Common Markup'),
+    '#description' => t($layout_instructions),
+  );
+  $form['ds_common_markup_layouts']['dscm-media'] = array(
+    '#type' => 'radios',
+    '#title' => t('Media object (@machine_name)', array('@machine_name' => 'dscm-media')),
+    '#description' => t("The OOCSS media object"),
+    '#options' => array(
+      0 => t('Markup and Styles'),
+      1 => t('Markup Only'),
+      2 => t('disabled'),
+    ),
+    '#default_value' => isset($layouts['dscm-media']) ? $layouts['dscm-media'] : 0,
+  );
+  $form['ds_common_markup_layouts']['dscm-figure'] = array(
+    '#type' => 'radios',
+    '#title' => t('Figure (@machine_name)', array('@machine_name' => 'dscm-figure')),
+    '#description' => t('Basic figure/figcaption markup.'),
+    '#options' => array(
+      0 => t('Markup & Styles'),
+      1 => t('Markup Only'),
+      2 => t('disabled')
+    ),
+    '#default_value' => isset($layouts['dscm-figure']) ? $layouts['dscm-figure'] : 0,
+  );
+
+  return system_settings_form($form);
+}
+
+

@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_uninstall.
+ */
+function ds_common_markup_uninstall() {
+  variable_del('custom_layouts_hide_panels');
+  variable_del('custom_layouts_hide_defaults');
+  variable_del('custom_layouts_hidden');
+  variable_del('custom_layouts_layouts');
+}

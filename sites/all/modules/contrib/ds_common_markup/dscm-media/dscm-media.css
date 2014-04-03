@@ -1,0 +1,41 @@
+/**
+ * The Media Object
+ *
+ * See: http://www.stubbornella.org/content/2010/06/25/
+ */
+
+/** Standard */
+/* -------------------------------------------------------------------------- */
+.media,.bd{
+  margin-bottom: 10px;
+  overflow:hidden;
+  _overflow:visible;
+  zoom:1
+}
+  .media > .img{
+    float:left;
+    margin-right:10px
+  }
+  .media > .img img{ display:block }
+  .media > .imgExt{
+    float:right;
+    margin-left:10px
+  }
+  .media--after {
+    clear: both;
+  }
+
+/** Reversed */
+/* -------------------------------------------------------------------------- */
+
+.media-reversed > .img {
+  float: right;
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.media-reversed > .imgExt {
+  float: left;
+  margin-right: 10px;
+  margin-left: 0;
+}

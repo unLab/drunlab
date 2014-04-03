@@ -121,6 +121,58 @@ function site_configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ds_classes_fields';
+  $strongarm->value = '';
+  $export['ds_classes_fields'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ds_classes_regions';
+  $strongarm->value = '';
+  $export['ds_classes_regions'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ds_common_markup_hidden';
+  $strongarm->value = '';
+  $export['ds_common_markup_hidden'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ds_common_markup_hide_defaults';
+  $strongarm->value = 1;
+  $export['ds_common_markup_hide_defaults'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ds_common_markup_hide_panels';
+  $strongarm->value = 1;
+  $export['ds_common_markup_hide_panels'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ds_common_markup_layouts';
+  $strongarm->value = array(
+    'dscm-media' => '1',
+    'dscm-figure' => '1',
+  );
+  $export['ds_common_markup_layouts'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ds_common_markup_visible';
+  $strongarm->value = 'ds_reset';
+  $export['ds_common_markup_visible'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'filter_fallback_format';
   $strongarm->value = 'plain_text';
   $export['filter_fallback_format'] = $strongarm;

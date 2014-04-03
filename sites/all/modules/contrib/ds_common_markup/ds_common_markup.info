@@ -1,0 +1,9 @@
+name = Common Markup for Display Suite
+description = Provides several common markup patterns as layouts, and allows other layouts to be hidden.
+package = Display Suite
+php = 5.2
+core = 7.x
+dependencies[] = ds
+files[] = ds_common_markup.module
+
+version = 7.x-1.0-rc1
