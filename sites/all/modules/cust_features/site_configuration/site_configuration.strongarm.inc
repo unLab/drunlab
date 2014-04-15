@@ -497,6 +497,16 @@ function site_configuration_strongarm() {
     'token-view:machine-name' => 0,
     'token-view:title' => 0,
     'token-view:url' => 0,
+    'entity_view-comment' => 0,
+    'entity_view-node' => 0,
+    'entity_view-taxonomy_term' => 0,
+    'entity_view-user' => 0,
+    'menu_tree-_active' => 0,
+    'menu_tree-features' => 0,
+    'menu_tree-main-menu' => 0,
+    'menu_tree-management' => 0,
+    'menu_tree-navigation' => 0,
+    'menu_tree-user-menu' => 0,
   );
   $export['panels_page_allowed_types'] = $strongarm;
 
@@ -512,6 +522,7 @@ function site_configuration_strongarm() {
     'entity_field' => 0,
     'entity_field_extra' => 0,
     'token' => 0,
+    'entity_view' => 0,
     'other' => 0,
   );
   $export['panels_page_default'] = $strongarm;
