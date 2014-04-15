@@ -114,9 +114,23 @@ function site_configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'date_api_version';
+  $strongarm->value = '7.2';
+  $export['date_api_version'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'date_default_timezone';
   $strongarm->value = 'America/Toronto';
   $export['date_default_timezone'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_popup_timepicker';
+  $strongarm->value = 'default';
+  $export['date_popup_timepicker'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -437,6 +451,8 @@ function site_configuration_strongarm() {
     'token-comment:parent' => 0,
     'token-comment:node' => 0,
     'token-comment:author' => 0,
+    'token-date-field-value:date' => 0,
+    'token-date-field-value:to-date' => 0,
     'token-site:name' => 0,
     'token-site:slogan' => 0,
     'token-site:mail' => 0,
