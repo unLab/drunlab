@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the basic_page feature.
+ */
+
+include_once 'basic_page.features.inc';
