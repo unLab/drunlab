@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the drunlab_events feature.
+ */
+
+include_once 'drunlab_events.features.inc';
