@@ -516,6 +516,7 @@ function site_configuration_strongarm() {
   $strongarm->name = 'panels_page_default';
   $strongarm->value = array(
     'custom' => 'custom',
+    'menu_tree' => 'menu_tree',
     'views_panes' => 'views_panes',
     'block' => 0,
     'entity_form_field' => 0,
