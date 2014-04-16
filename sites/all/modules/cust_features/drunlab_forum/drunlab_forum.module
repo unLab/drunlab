@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the drunlab_forum feature.
+ */
+
+include_once 'drunlab_forum.features.inc';
