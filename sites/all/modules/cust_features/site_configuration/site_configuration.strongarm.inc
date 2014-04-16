@@ -312,7 +312,7 @@ function site_configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_page';
-  $strongarm->value = FALSE;
+  $strongarm->value = 0;
   $export['node_submitted_page'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -397,6 +397,7 @@ function site_configuration_strongarm() {
     'node-node' => 0,
     'term_description-term_description' => 0,
     'term_list-term_list' => 0,
+    'membership_links-membership_links' => 0,
     'pane_messages-pane_messages' => 0,
     'views_header-views_header' => 0,
     'views_feed-views_feed' => 0,
@@ -412,10 +413,38 @@ function site_configuration_strongarm() {
     'entity_form_field-node:body' => 0,
     'entity_form_field-node:field_tags' => 0,
     'entity_form_field-node:field_image' => 0,
+    'entity_form_field-node:field_images' => 0,
+    'entity_form_field-node:og_group_ref' => 0,
+    'entity_form_field-node:field_event_date' => 0,
+    'entity_form_field-node:field_contact_name' => 0,
+    'entity_form_field-node:field_contact_phone' => 0,
+    'entity_form_field-node:field_contact_email' => 0,
+    'entity_form_field-node:field_event_price' => 0,
+    'entity_form_field-node:group_group' => 0,
+    'entity_form_field-node:field_started' => 0,
+    'entity_form_field-node:field_completed' => 0,
+    'entity_form_field-node:field_project_status' => 0,
+    'entity_form_field-node:field_project_category' => 0,
+    'entity_form_field-og_membership:og_membership_request' => 0,
+    'entity_form_field-user:og_user_node' => 0,
     'entity_field-comment:comment_body' => 0,
     'entity_field-node:body' => 0,
     'entity_field-node:field_tags' => 0,
     'entity_field-node:field_image' => 0,
+    'entity_field-node:field_images' => 0,
+    'entity_field-node:og_group_ref' => 0,
+    'entity_field-node:field_event_date' => 0,
+    'entity_field-node:field_contact_name' => 0,
+    'entity_field-node:field_contact_phone' => 0,
+    'entity_field-node:field_contact_email' => 0,
+    'entity_field-node:field_event_price' => 0,
+    'entity_field-node:group_group' => 0,
+    'entity_field-node:field_started' => 0,
+    'entity_field-node:field_completed' => 0,
+    'entity_field-node:field_project_status' => 0,
+    'entity_field-node:field_project_category' => 0,
+    'entity_field-og_membership:og_membership_request' => 0,
+    'entity_field-user:og_user_node' => 0,
     'entity_field_extra-taxonomy_term:description' => 0,
     'entity_field_extra-user:summary' => 0,
     'custom-custom' => 'custom-custom',
@@ -499,6 +528,8 @@ function site_configuration_strongarm() {
     'token-view:url' => 0,
     'entity_view-comment' => 0,
     'entity_view-node' => 0,
+    'entity_view-og_membership_type' => 0,
+    'entity_view-og_membership' => 0,
     'entity_view-taxonomy_term' => 0,
     'entity_view-user' => 0,
     'menu_tree-_active' => 0,
@@ -507,6 +538,10 @@ function site_configuration_strongarm() {
     'menu_tree-management' => 0,
     'menu_tree-navigation' => 0,
     'menu_tree-user-menu' => 0,
+    'views_panes-og_all_user_group_content-panel_pane_1' => 'views_panes-og_all_user_group_content-panel_pane_1',
+    'views_panes-og_members-panel_pane_1' => 'views_panes-og_members-panel_pane_1',
+    'views_panes-og_nodes-panel_pane_1' => 'views_panes-og_nodes-panel_pane_1',
+    'views_panes-og_user_groups-panel_pane_1' => 'views_panes-og_user_groups-panel_pane_1',
   );
   $export['panels_page_allowed_types'] = $strongarm;
 
