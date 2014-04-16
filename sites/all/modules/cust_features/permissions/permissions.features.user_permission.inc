@@ -221,6 +221,15 @@ function permissions_user_default_permissions() {
     'module' => 'filter',
   );
 
+  // Exported permission: 'administer group'.
+  $permissions['administer group'] = array(
+    'name' => 'administer group',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'og',
+  );
+
   // Exported permission: 'administer image styles'.
   $permissions['administer image styles'] = array(
     'name' => 'administer image styles',
@@ -455,12 +464,33 @@ function permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create discussion content'.
+  $permissions['create discussion content'] = array(
+    'name' => 'create discussion content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create events content'.
+  $permissions['create events content'] = array(
+    'name' => 'create events content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create page content'.
   $permissions['create page content'] = array(
     'name' => 'create page content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create project content'.
+  $permissions['create project content'] = array(
+    'name' => 'create project content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -491,12 +521,33 @@ function permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any discussion content'.
+  $permissions['delete any discussion content'] = array(
+    'name' => 'delete any discussion content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any events content'.
+  $permissions['delete any events content'] = array(
+    'name' => 'delete any events content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any page content'.
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any project content'.
+  $permissions['delete any project content'] = array(
+    'name' => 'delete any project content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -509,12 +560,33 @@ function permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own discussion content'.
+  $permissions['delete own discussion content'] = array(
+    'name' => 'delete own discussion content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own events content'.
+  $permissions['delete own events content'] = array(
+    'name' => 'delete own events content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own page content'.
   $permissions['delete own page content'] = array(
     'name' => 'delete own page content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own project content'.
+  $permissions['delete own project content'] = array(
+    'name' => 'delete own project content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -525,6 +597,27 @@ function permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete terms in project_category'.
+  $permissions['delete terms in project_category'] = array(
+    'name' => 'delete terms in project_category',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'delete terms in project_status'.
+  $permissions['delete terms in project_status'] = array(
+    'name' => 'delete terms in project_status',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'delete terms in section'.
+  $permissions['delete terms in section'] = array(
+    'name' => 'delete terms in section',
+    'roles' => array(),
+    'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in tags'.
@@ -554,12 +647,33 @@ function permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any discussion content'.
+  $permissions['edit any discussion content'] = array(
+    'name' => 'edit any discussion content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any events content'.
+  $permissions['edit any events content'] = array(
+    'name' => 'edit any events content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any page content'.
   $permissions['edit any page content'] = array(
     'name' => 'edit any page content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any project content'.
+  $permissions['edit any project content'] = array(
+    'name' => 'edit any project content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -581,6 +695,20 @@ function permissions_user_default_permissions() {
     'module' => 'comment',
   );
 
+  // Exported permission: 'edit own discussion content'.
+  $permissions['edit own discussion content'] = array(
+    'name' => 'edit own discussion content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own events content'.
+  $permissions['edit own events content'] = array(
+    'name' => 'edit own events content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit own page content'.
   $permissions['edit own page content'] = array(
     'name' => 'edit own page content',
@@ -588,6 +716,34 @@ function permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit own project content'.
+  $permissions['edit own project content'] = array(
+    'name' => 'edit own project content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit terms in project_category'.
+  $permissions['edit terms in project_category'] = array(
+    'name' => 'edit terms in project_category',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'edit terms in project_status'.
+  $permissions['edit terms in project_status'] = array(
+    'name' => 'edit terms in project_status',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'edit terms in section'.
+  $permissions['edit terms in section'] = array(
+    'name' => 'edit terms in section',
+    'roles' => array(),
+    'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in tags'.
@@ -763,6 +919,15 @@ function permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'filter',
+  );
+
+  // Exported permission: 'view date repeats'.
+  $permissions['view date repeats'] = array(
+    'name' => 'view date repeats',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'date_repeat_field',
   );
 
   // Exported permission: 'view own unpublished content'.
