@@ -1,0 +1,13 @@
+.drunlab-main-region {
+  margin-bottom: 1em;
+}
+
+.drunlab-main-column {
+  float: left;
+  width: 33%;
+  margin-left: 0.5%;
+}
+
+.drunlab-main-column:first-child {
+  margin-left: 0;
+}
