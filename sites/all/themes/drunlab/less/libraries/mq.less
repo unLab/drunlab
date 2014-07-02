@@ -1,0 +1,17 @@
+#mq {
+  .has-support(@rules) {
+    @media screen and (min-width: 0px) { @rules(); }
+  }
+  .narrow(@rules) {
+    @media screen and (min-width: @width-narrow) { @rules(); }
+  }
+  .normal(@rules) {
+    @media screen and (min-width: @width-normal) { @rules(); }
+  }
+  .wide(@rules) {
+    @media screen and (min-width: @width-wide) { @rules(); }
+  }
+  .custom(@query; @rules) {
+    @media screen and (@query) { @rules(); }
+  }
+}

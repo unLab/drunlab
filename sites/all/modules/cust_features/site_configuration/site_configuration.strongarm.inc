@@ -326,7 +326,7 @@ function site_configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'panels_page_allowed_layouts';
-  $strongarm->value = 'O:22:"panels_allowed_layouts":4:{s:9:"allow_new";b:1;s:11:"module_name";s:11:"panels_page";s:23:"allowed_layout_settings";a:9:{s:8:"flexible";b:0;s:17:"threecol_33_34_33";b:0;s:25:"threecol_25_50_25_stacked";b:0;s:25:"threecol_33_34_33_stacked";b:0;s:6:"onecol";b:1;s:13:"twocol_bricks";b:0;s:17:"threecol_25_50_25";b:0;s:14:"twocol_stacked";b:0;s:6:"twocol";b:0;}s:10:"form_state";N;}';
+  $strongarm->value = 'O:22:"panels_allowed_layouts":4:{s:9:"allow_new";b:1;s:11:"module_name";s:11:"panels_page";s:23:"allowed_layout_settings";a:10:{s:8:"flexible";b:0;s:17:"threecol_33_34_33";b:0;s:25:"threecol_25_50_25_stacked";b:0;s:25:"threecol_33_34_33_stacked";b:0;s:6:"onecol";b:1;s:13:"twocol_bricks";b:0;s:17:"threecol_25_50_25";b:0;s:14:"twocol_stacked";b:0;s:6:"twocol";b:0;s:12:"drunlab_main";b:1;}s:10:"form_state";N;}';
   $export['panels_page_allowed_layouts'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -532,16 +532,16 @@ function site_configuration_strongarm() {
     'entity_view-og_membership' => 0,
     'entity_view-taxonomy_term' => 0,
     'entity_view-user' => 0,
-    'menu_tree-_active' => 0,
+    'menu_tree-_active' => 'menu_tree-_active',
+    'menu_tree-main-menu' => 'menu_tree-main-menu',
+    'menu_tree-navigation' => 'menu_tree-navigation',
+    'menu_tree-user-menu' => 'menu_tree-user-menu',
     'menu_tree-features' => 0,
-    'menu_tree-main-menu' => 0,
     'menu_tree-management' => 0,
-    'menu_tree-navigation' => 0,
-    'menu_tree-user-menu' => 0,
-    'views_panes-og_all_user_group_content-panel_pane_1' => 'views_panes-og_all_user_group_content-panel_pane_1',
     'views_panes-og_members-panel_pane_1' => 'views_panes-og_members-panel_pane_1',
     'views_panes-og_nodes-panel_pane_1' => 'views_panes-og_nodes-panel_pane_1',
     'views_panes-og_user_groups-panel_pane_1' => 'views_panes-og_user_groups-panel_pane_1',
+    'views_panes-og_all_user_group_content-panel_pane_1' => 'views_panes-og_all_user_group_content-panel_pane_1',
   );
   $export['panels_page_allowed_types'] = $strongarm;
 
@@ -583,6 +583,29 @@ function site_configuration_strongarm() {
   $strongarm->name = 'theme_default';
   $strongarm->value = 'drunlab';
   $export['theme_default'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_drunlab_settings';
+  $strongarm->value = array(
+    'toggle_logo' => 1,
+    'toggle_name' => 1,
+    'toggle_slogan' => 1,
+    'toggle_node_user_picture' => 1,
+    'toggle_comment_user_picture' => 1,
+    'toggle_comment_user_verification' => 1,
+    'toggle_favicon' => 1,
+    'toggle_main_menu' => 1,
+    'toggle_secondary_menu' => 1,
+    'default_logo' => 1,
+    'logo_path' => '',
+    'logo_upload' => '',
+    'default_favicon' => 1,
+    'favicon_path' => '',
+    'favicon_upload' => '',
+  );
+  $export['theme_drunlab_settings'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

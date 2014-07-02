@@ -10,13 +10,13 @@
   </div>
 </section>
 
-<aside class="left-sidebar">
+<aside class="sidebar--left">
   <div class="constrain">
     <?php print $content['left']; ?>
   </div>
 </aside>
 
-<aside class="right-sidebar">
+<aside class="sidebar--right">
   <div class="constrain">
     <?php print $content['right']; ?>
   </div>

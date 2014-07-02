@@ -57,6 +57,7 @@ features[variable][] = panels_page_default
 features[variable][] = site_default_country
 features[variable][] = site_name
 features[variable][] = theme_default
+features[variable][] = theme_drunlab_settings
 features[variable][] = theme_shiny_settings
 features[variable][] = update_notify_emails
 features[variable][] = user_admin_role

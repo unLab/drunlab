@@ -1,0 +1,43 @@
+html {
+
+  #mq.narrow({
+    background-image: url(images/main_bg.png);
+  });
+}
+
+body {
+  background: #fff;
+}
+
+header.main {
+  background: #002;
+  color: #fff;
+  a {color: #fff !important; }
+
+  #mq.narrow({
+    background: #002 url(images/banner_bg.png) right bottom no-repeat;
+  });
+}
+
+.sidebar {
+  background-color: #787878;
+}
+
+.sidebar--left {
+  #mq.normal ({
+    border-radius: 0.75em 0.75em 0 0;
+  });
+  #mq.wide ({
+    border-radius: 0.75em;
+  });
+}
+
+.sidebar--right {
+  #mq.normal ({
+    border-radius: 0 0 0.75em 0.75em;
+  });
+  #mq.wide({
+    background-color: #fff;
+    border-radius: 0;
+  });
+}

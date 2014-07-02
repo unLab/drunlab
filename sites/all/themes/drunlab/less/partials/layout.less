@@ -1,0 +1,83 @@
+@-ms-viewport { width: device-width; }
+@-o-viewport { width: device-width; }
+@viewport { width: device-width; }
+
+html, body {
+  margin: 0; padding: 0;
+}
+
+body {
+  &:extend(.cf);
+
+  margin: 0 10px;
+
+  #mq.narrow({
+    margin: auto;
+    width: 85%;
+  });
+  #mq.normal({max-width: 1024px; });
+}
+
+header.main {
+  
+}
+
+section.main {
+  padding: 0.25em 1%;
+
+  #mq.normal({
+    float: right;
+    width: 73%;
+  });
+
+  #mq.wide({
+    float: left;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 48%;
+  });
+}
+
+.sidebar {
+  padding: 0.75em 1%;
+  min-height: 120px;
+
+  #mq.normal({
+    margin: 0.75em 1%;
+    float: left;
+    width: 21%;
+  });
+}
+
+.sidebar--left:extend(.sidebar) {
+  #mq.normal({
+    margin-bottom: 0;
+    padding-bottom: 0;
+  });
+  #mq.wide({
+    margin-left: -99%;
+  });
+}
+
+.sidebar--right:extend(.sidebar) {
+
+  #mq.normal({
+    clear: left;
+    margin-top: 0;
+    padding-top: 0;
+  });
+  #mq.wide({
+    clear: none;
+    float: left;
+    margin-left: -24%;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+  });
+}
+
+footer.main {
+  clear: both;
+  background: #fe57a1;
+  min-height: 60px;
+}
+
