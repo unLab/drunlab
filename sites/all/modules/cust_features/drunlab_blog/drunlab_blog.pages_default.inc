@@ -67,6 +67,25 @@ function drunlab_blog_default_page_manager_pages() {
   $display->uuid = '18eed995-67ab-4543-9f31-64e49d7ce8c6';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-a84a5260-e05d-48b8-8ddc-22f9e9b40548';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'news-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'a84a5260-e05d-48b8-8ddc-22f9e9b40548';
+    $display->content['new-a84a5260-e05d-48b8-8ddc-22f9e9b40548'] = $pane;
+    $display->panels['middle'][0] = 'new-a84a5260-e05d-48b8-8ddc-22f9e9b40548';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

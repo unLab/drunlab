@@ -172,7 +172,7 @@ function site_configuration_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'ds_common_markup_layouts';
   $strongarm->value = array(
-    'dscm-media' => '1',
+    'dscm-media' => '0',
     'dscm-figure' => '1',
   );
   $export['ds_common_markup_layouts'] = $strongarm;

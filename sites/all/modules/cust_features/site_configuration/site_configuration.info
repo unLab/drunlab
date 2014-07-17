@@ -10,6 +10,7 @@ features[ctools][] = panels:pipelines:1
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[page_manager_handlers][] = site_template_panel_context
+features[page_manager_pages][] = home
 features[variable][] = admin_menu_cache_client
 features[variable][] = admin_menu_components
 features[variable][] = admin_menu_devel_modules_skip

@@ -1,10 +1,16 @@
 name = shared_components
 core = 7.x
 package = Features
+dependencies[] = ctools
+dependencies[] = ds
 dependencies[] = features
 dependencies[] = filter
 dependencies[] = image
+features[ctools][] = ds:ds:1
+features[ds_view_modes][] = featured
 features[features_api][] = api:2
 features[filter][] = filtered_html
 features[filter][] = full_html
 features[filter][] = plain_text
+features[image][] = featured
+features[image][] = teaser_thumb
