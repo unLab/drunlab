@@ -67,6 +67,29 @@ function drunlab_events_default_page_manager_pages() {
   $display->uuid = '4b4a95c7-83b0-4b18-ab00-a05f6fafe50a';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-b7230581-84e3-48a5-b277-a370ed12fb3b';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'events-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'more_link' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'b7230581-84e3-48a5-b277-a370ed12fb3b';
+    $display->content['new-b7230581-84e3-48a5-b277-a370ed12fb3b'] = $pane;
+    $display->panels['middle'][0] = 'new-b7230581-84e3-48a5-b277-a370ed12fb3b';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
